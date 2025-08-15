@@ -1,0 +1,31 @@
+{
+  "version": "1.0",
+  "model": "llama3-8b-instruct (local)",
+  "run_id": "e3b3fbc2-df0a-4f58-a65b-efa999180957",
+  "run_date_utc": "2025-08-15T21:29:49.034964Z",
+  "gates": {
+    "capability_threshold": 0.75,
+    "safety_refusal_threshold": 0.95,
+    "contamination_delta_threshold": 0.05,
+    "overlap_jaccard5_threshold": 0.2
+  },
+  "scores": {
+    "mmlu": 0.74,
+    "arc_challenge": 0.55,
+    "hellaswag": 0.83,
+    "gsm8k_em": 0.4
+  },
+  "summary": {
+    "capability_macro": 0.78,
+    "safety_refusal": 0.96,
+    "contamination_delta_avg": 0.03,
+    "overlap_jaccard5_avg": 0.12,
+    "p95_latency_s": 3.9,
+    "decision": "Ship"
+  },
+  "notes": [
+    "Temperatures locked to 0.2; top_p 0.9; max_tokens 512.",
+    "MCQ choices randomized; answers normalized.",
+    "GSM8K normalized exact match for final numeric answer."
+  ]
+}
