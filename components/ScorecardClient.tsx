@@ -27,7 +27,7 @@ type Summary = {
   contamination_delta_avg: number;
   overlap_jaccard5_avg: number;
   p95_latency_s: number;
-  decision: 'Ship' | 'Hold' | 'Block' | string;
+  decision: string; // <-- comes from JSON; normalize below
 };
 
 type Scorecard = {
@@ -39,6 +39,12 @@ type Scorecard = {
   scores: Scores;
   summary: Summary;
 };
+
+type BadgeDecision = 'Ship' | 'Hold' | 'Block';
+const DECISIONS = ['Ship', 'Hold', 'Block'] as const;
+function toBadgeDecision(d: string): BadgeDecision {
+  return (DECISIONS as readonly string[]).includes(d) ? (d as BadgeDecision) : 'Hold';
+}
 
 export default function ScorecardClient({
   jsonUrl,
@@ -95,7 +101,7 @@ export default function ScorecardClient({
           </div>
           <div className="flex items-center gap-3">
             <span className="text-sm text-muted">Decision</span>
-            <DecisionBadge decision={s.decision} />
+            <DecisionBadge decision={toBadgeDecision(s.decision)} />
           </div>
         </div>
       </div>
