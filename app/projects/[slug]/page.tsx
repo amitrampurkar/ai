@@ -33,34 +33,35 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
   );
 
   // For this specific project, show the visual scorecard + downloads
-  if (p.slug === 'eval-harness-contamination') {
+    if (p.slug === 'eval-harness-contamination') {
     const downloads = [
-      { title: 'Scorecard (JSON)', href: '/downloads/scorecard_llama3_local.json' },
-      { title: 'Run log (MD)', href: '/downloads/experiment_log.md' },
-      { title: 'Gate rubric (MD)', href: '/downloads/ship_hold_gates.md' }
+      { title: 'Scorecard (JSON)', href: '/ai/downloads/scorecard_llama3_local.json' },
+      { title: 'Run log (MD)', href: '/ai/downloads/experiment_log.md' },
+      { title: 'Gate rubric (MD)', href: '/ai/downloads/ship_hold_gates.md' }
     ];
+    const ScorecardStatic = (await import('@/components/ScorecardStatic')).default;
 
     return (
       <article className="flex flex-col gap-8">
         {Header}
 
-        {/* HR-friendly TL;DR card */}
+        {/* HR-friendly TL;DR */}
         <section className="card">
           <div className="text-sm text-muted mb-2">TL;DR for recruiters</div>
           <ul className="list-disc pl-6 space-y-2 text-sm">
             <li><strong>Shipped gates</strong> across capability, safety, contamination with a clear <em>Ship</em> decision.</li>
-            <li><strong>Local model, zero cost</strong>: Llama-3 8B Instruct via Ollama; latency measured, results logged.</li>
-            <li><strong>Paper trail</strong>: machine-readable scorecard + run log (download below).</li>
+            <li><strong>Local model, zero cost</strong>: Llama-3 8B via Ollama; latency measured, results logged.</li>
+            <li><strong>Paper trail</strong>: machine-readable scorecard + run log.</li>
           </ul>
         </section>
 
-        {/* Visual dashboard from scorecard JSON */}
-        <ScorecardClient
-          jsonUrl="/downloads/scorecard_llama3_local.json"
+        {/* Build-time scorecard (no fetch issues) */}
+        <ScorecardStatic
+          file="downloads/scorecard_llama3_local.json"
           downloads={downloads}
         />
 
-        {/* Full write-up (for hiring managers) */}
+        {/* Full write-up */}
         {md && (
           <div
             className="prose prose-invert max-w-none"
@@ -70,6 +71,7 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
       </article>
     );
   }
+
 
   // Other projects: fall back to the markdown or summary
   return (
