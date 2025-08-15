@@ -1,6 +1,6 @@
 # Experiment Log — LLM Eval Harness (Representative Run)
-Run ID: e3b3fbc2-df0a-4f58-a65b-efa999180957
-Date (UTC): 2025-08-15T21:29:49.034964Z
+Run ID: 49141be4-432e-4de8-a67a-121f3bcf6693
+Date (UTC): 2025-08-15T23:23:31.789831Z
 
 ## Configuration
 - Model: llama3-8b-instruct (Ollama, local)
@@ -24,6 +24,6 @@ Date (UTC): 2025-08-15T21:29:49.034964Z
 - Decision: Ship
 
 ## Observations
-- Mild option bias corrected by randomizing MCQ choices.
-- GSM8K EM unstable >0.5 temperature; fixed at 0.2.
-- Safety false negatives addressed with explicit policy reminders.
+- Option bias corrected by randomizing MCQ choices.
+- GSM8K EM unstable at higher temperatures; standardized to 0.2.
+- Safety false negatives reduced via explicit policy-reminder framing.
