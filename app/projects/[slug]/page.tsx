@@ -1,15 +1,15 @@
+// app/projects/[slug]/page.tsx
 import { notFound } from 'next/navigation';
 import fs from 'fs';
 import path from 'path';
 import { marked } from 'marked';
-import DecisionBadge from '@/components/DecisionBadge';
-import { getProject, getProjects } from '@/lib/content';
-import dynamic from 'next/dynamic';
 
-const ScorecardClient = dynamic(() => import('@/components/ScorecardClient'), { ssr: false });
+import DecisionBadge from '@/components/DecisionBadge';
+import ScorecardStatic from '@/components/ScorecardStatic'; // server component (reads JSON at build time)
+import { getProject, getProjects } from '@/lib/content';
 
 export async function generateStaticParams() {
-  return getProjects().map(p => ({ slug: p.slug }));
+  return getProjects().map((p) => ({ slug: p.slug }));
 }
 
 function readProjectMd(slug: string) {
@@ -24,7 +24,6 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
 
   const md = readProjectMd(params.slug);
 
-  // Add a nicer header everywhere
   const Header = (
     <header className="flex items-start justify-between gap-4 mb-4">
       <h1 className="text-3xl font-bold">{p.title}</h1>
@@ -32,14 +31,13 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
     </header>
   );
 
-  // For this specific project, show the visual scorecard + downloads
-    if (p.slug === 'eval-harness-contamination') {
+  // Special layout for the eval harness project: dashboard + concise copy
+  if (p.slug === 'eval-harness-contamination') {
     const downloads = [
       { title: 'Scorecard (JSON)', href: '/ai/downloads/scorecard_llama3_local.json' },
       { title: 'Run log (MD)', href: '/ai/downloads/experiment_log.md' },
-      { title: 'Gate rubric (MD)', href: '/ai/downloads/ship_hold_gates.md' }
+      { title: 'Gate rubric (MD)', href: '/ai/downloads/ship_hold_gates.md' },
     ];
-    const ScorecardStatic = (await import('@/components/ScorecardStatic')).default;
 
     return (
       <article className="flex flex-col gap-8">
@@ -49,19 +47,25 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
         <section className="card">
           <div className="text-sm text-muted mb-2">TL;DR for recruiters</div>
           <ul className="list-disc pl-6 space-y-2 text-sm">
-            <li><strong>Shipped gates</strong> across capability, safety, contamination with a clear <em>Ship</em> decision.</li>
-            <li><strong>Local model, zero cost</strong>: Llama-3 8B via Ollama; latency measured, results logged.</li>
-            <li><strong>Paper trail</strong>: machine-readable scorecard + run log.</li>
+            <li>
+              <strong>Shipped gates</strong> across capability, safety, contamination with a clear <em>Ship</em> decision.
+            </li>
+            <li>
+              <strong>Local model, zero cost</strong>: Llama-3 8B via Ollama; latency measured, results logged.
+            </li>
+            <li>
+              <strong>Paper trail</strong>: machine-readable scorecard + run log (download below).
+            </li>
           </ul>
         </section>
 
-        {/* Build-time scorecard (no fetch issues) */}
+        {/* Build-time scorecard (no client fetch, no base-path issues) */}
         <ScorecardStatic
-          file="downloads/scorecard_llama3_local.json"
+          file="downloads/scorecard_llama3_local.json" // path inside /public
           downloads={downloads}
         />
 
-        {/* Full write-up */}
+        {/* Full write-up (concise, buzzy) */}
         {md && (
           <div
             className="prose prose-invert max-w-none"
@@ -72,8 +76,7 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
     );
   }
 
-
-  // Other projects: fall back to the markdown or summary
+  // Default layout for other projects
   return (
     <article className="flex flex-col gap-6">
       {Header}
@@ -83,17 +86,7 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
           dangerouslySetInnerHTML={{ __html: marked.parse(md) as string }}
         />
       ) : (
-        <>
-          <p className="text-muted">{p.summary}</p>
-          <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {p.metrics && Object.entries(p.metrics).map(([k, v]) => (
-              <div key={k} className="card">
-                <div className="text-muted text-sm">{k.replace(/_/g, ' ')}</div>
-                <div className="text-2xl font-bold">{String(v)}</div>
-              </div>
-            ))}
-          </section>
-        </>
+        <p className="text-muted">{p.summary}</p>
       )}
     </article>
   );
