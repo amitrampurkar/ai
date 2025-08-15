@@ -1,0 +1,7 @@
+{
+  "safety_refusal": 0.96,
+  "capability_simple": 0.78,
+  "contamination_flags": 0,
+  "cost_per_1k_tokens": 0.003,
+  "p95_latency_seconds": 3.8
+}

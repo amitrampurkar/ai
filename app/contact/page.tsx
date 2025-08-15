@@ -1,0 +1,1 @@
+export default function Contact(){const email='Rampurkar.Amit@gmail.com';return(<div className='flex flex-col gap-6'><h1 className='text-3xl font-bold'>Contact</h1><p className='text-muted'>Email me directly:</p><a className='btn' href={`mailto:${email}`}>Send Email</a></div>)}

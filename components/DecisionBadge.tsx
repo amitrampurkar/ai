@@ -1,0 +1,1 @@
+export default function DecisionBadge({decision}:{decision:'Ship'|'Hold'|'Block'}){const cls=decision==='Ship'?'badge badge-ship':decision==='Hold'?'badge badge-hold':'badge badge-block';return <span className={cls}>{decision}</span>}

@@ -1,0 +1,1 @@
+export default function MetricTile({label,value}:{label:string;value:string}){return(<div className='card'><div className='text-muted text-sm'>{label}</div><div className='text-2xl font-bold'>{value}</div></div>)}

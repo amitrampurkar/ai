@@ -1,0 +1,1 @@
+export default function Resume(){return(<div className='flex flex-col gap-6'><h1 className='text-3xl font-bold'>Resume</h1><iframe src='/downloads/Amit_Rampurkar_Resume.pdf' className='w-full h-[80vh] rounded-2xl border border-white/10'/><a className='btn' href='/downloads/Amit_Rampurkar_Resume.pdf' download>Download PDF</a></div>)}

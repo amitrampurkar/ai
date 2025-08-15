@@ -1,0 +1,1 @@
+export default function Privacy(){return(<div className='prose prose-invert max-w-3xl'><h1>Privacy</h1><p>This site uses Google Analytics 4 to understand aggregate usage. No other tracking is used.</p></div>)}

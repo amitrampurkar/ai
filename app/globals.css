@@ -1,0 +1,13 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+:root { color-scheme: dark; } body { @apply bg-bg text-text; }
+a { @apply underline decoration-accent underline-offset-4; } a:hover { @apply text-accent; }
+.container { @apply mx-auto px-4 sm:px-6 lg:px-8; }
+.card { @apply bg-card rounded-2xl shadow p-6; }
+.badge { @apply px-2 py-0.5 rounded text-xs font-medium; }
+.badge-ship { @apply bg-green-600/20 text-green-300; }
+.badge-hold { @apply bg-amber-600/20 text-amber-300; }
+.badge-block { @apply bg-rose-600/20 text-rose-300; }
+.btn { @apply inline-flex items-center gap-2 rounded-2xl px-4 py-2 bg-accent text-black no-underline; }
+.btn-secondary { @apply bg-transparent border border-accent text-text; }
+nav a { @apply no-underline; } nav a:hover { @apply text-accent; }
+.prose { @apply max-w-none; } .prose p { @apply text-base; }

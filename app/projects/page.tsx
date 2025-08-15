@@ -1,0 +1,1 @@
+import ProjectCard from '@/components/ProjectCard'; import {getProjects} from '@/lib/content'; export default function P(){const ps=getProjects();return(<div className='flex flex-col gap-6'><h1 className='text-3xl font-bold'>Projects</h1><div className='grid grid-cols-1 md:grid-cols-3 gap-6'>{ps.map(p=><ProjectCard key={p.slug} p={p}/>)}</div></div>)}

@@ -1,0 +1,46 @@
+{
+  "projects": [
+    {
+      "slug": "eval-harness-contamination",
+      "title": "LLM Eval Harness & Contamination Defense",
+      "summary": "Lightweight harness with safety and contamination gates; production-minded scorecard and ship/hold criteria.",
+      "pillars": [
+        "Evals & Safety"
+      ],
+      "metrics": {
+        "capability": 0.78,
+        "safety_refusal": 0.96,
+        "contam": 0
+      },
+      "decision": "Ship"
+    },
+    {
+      "slug": "agent-memory-benchmark",
+      "title": "Agent Memory Benchmark",
+      "summary": "Episodic + semantic memory improves long-horizon task completion with bounded latency and token overhead.",
+      "pillars": [
+        "Long-Horizon Capability"
+      ],
+      "metrics": {
+        "lift_completion": 0.23,
+        "p95_delta": 0.28,
+        "token_overhead": 0.11
+      },
+      "decision": "Ship"
+    },
+    {
+      "slug": "sft-dpo-mini",
+      "title": "Instruction Tuning (SFT\u2192DPO) Mini",
+      "summary": "Measured quality gains against cost; clear stop/continue rule and preference-data roadmap.",
+      "pillars": [
+        "Post-Training"
+      ],
+      "metrics": {
+        "helpfulness_delta": 8,
+        "gpu_cost_usd": 42,
+        "latency_p95_delta_s": 0.2
+      },
+      "decision": "Hold"
+    }
+  ]
+}
