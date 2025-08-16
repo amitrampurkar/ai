@@ -5,7 +5,7 @@ import path from 'path';
 import { marked } from 'marked';
 
 import DecisionBadge from '@/components/DecisionBadge';
-import ScorecardStatic from '@/components/ScorecardStatic'; // server component (reads JSON at build time)
+import ScorecardStatic from '@/components/ScorecardStatic';
 import { getProject, getProjects } from '@/lib/content';
 
 export async function generateStaticParams() {
@@ -25,13 +25,12 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
   const md = readProjectMd(params.slug);
 
   const Header = (
-    <header className="flex items-start justify-between gap-4 mb-4">
+    <header className="flex items-start justify-between gap-4 mb-6">
       <h1 className="text-3xl font-bold">{p.title}</h1>
       <DecisionBadge decision={p.decision} />
     </header>
   );
 
-  // Special layout for the eval harness project: dashboard + concise copy
   if (p.slug === 'eval-harness-contamination') {
     const downloads = [
       { title: 'Scorecard (JSON)', href: '/ai/downloads/scorecard_llama3_local.json' },
@@ -40,12 +39,13 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
     ];
 
     return (
-      <article className="flex flex-col gap-8">
+      <article className="flex flex-col gap-12">
+        {/* more gap between sections ↑ */}
         {Header}
 
-        {/* HR-friendly TL;DR */}
+        {/* TL;DR card */}
         <section className="card">
-          <div className="text-sm text-muted mb-2">TL;DR for recruiters</div>
+          <div className="text-sm text-muted mb-3">TL;DR for recruiters</div>
           <ul className="list-disc pl-6 space-y-2 text-sm">
             <li>
               <strong>Shipped gates</strong> across capability, safety, contamination with a clear <em>Ship</em> decision.
@@ -59,16 +59,19 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
           </ul>
         </section>
 
-        {/* Build-time scorecard (no client fetch, no base-path issues) */}
-        <ScorecardStatic
-          file="downloads/scorecard_llama3_local.json" // path inside /public
-          downloads={downloads}
-        />
+        {/* Dashboard */}
+        <ScorecardStatic file="downloads/scorecard_llama3_local.json" downloads={downloads} />
 
-        {/* Full write-up (concise, buzzy) */}
+        {/* Case-study write-up with added spacing */}
         {md && (
           <div
-            className="prose prose-invert max-w-none"
+            className="
+              prose prose-invert max-w-none leading-relaxed
+              [&>*]:my-6           /* vertical space between direct children */
+              [&_h2]:mt-12 [&_h2]:mb-4
+              [&_h3]:mt-8  [&_h3]:mb-3
+              [&_ul]:my-4  [&_ol]:my-4
+              "
             dangerouslySetInnerHTML={{ __html: marked.parse(md) as string }}
           />
         )}
@@ -76,17 +79,23 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
     );
   }
 
-  // Default layout for other projects
+  // default layout for other projects
   return (
-    <article className="flex flex-col gap-6">
+    <article className="flex flex-col gap-12">
       {Header}
       {md ? (
         <div
-          className="prose prose-invert max-w-none"
+          className="
+            prose prose-invert max-w-none leading-relaxed
+            [&>*]:my-6
+            [&_h2]:mt-12 [&_h2]:mb-4
+            [&_h3]:mt-8  [&_h3]:mb-3
+            [&_ul]:my-4  [&_ol]:my-4
+          "
           dangerouslySetInnerHTML={{ __html: marked.parse(md) as string }}
         />
       ) : (
-        <p className="text-muted">{p.summary}</p>
+        <p className="text-muted">No write-up yet.</p>
       )}
     </article>
   );
