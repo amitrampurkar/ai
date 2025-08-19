@@ -47,20 +47,20 @@ export default function Page() {
         <div className="mt-6 flex items-center gap-3">
           <Link
             href="/projects/"
-            className="inline-flex items-center rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-500"
+            className="inline-flex items-center rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-500 no-underline"
           >
             View projects
           </Link>
           <Link
             href="/resources/"
-            className="inline-flex items-center rounded-full border border-zinc-700 px-4 py-2 text-sm font-semibold text-zinc-100 hover:bg-zinc-800"
+            className="inline-flex items-center rounded-full border border-zinc-700 px-4 py-2 text-sm font-semibold text-zinc-100 hover:bg-zinc-800 no-underline"
           >
             Download starter kit
           </Link>
         </div>
       </section>
 
-      {/* KPI strip with info icons */}
+      {/* KPI strip */}
       <section className="mt-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {homeKpis.map((k) => (
@@ -69,61 +69,70 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Featured Projects (kept minimal) */}
+      {/* Featured Projects */}
       <section className="mt-10">
         <h2 className="text-lg font-semibold text-zinc-100">Featured Projects</h2>
         <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {/* Card 1 */}
           <Link
             href="/projects/eval-harness-contamination/"
-            className="block rounded-2xl border border-zinc-800 bg-zinc-900 p-5 hover:bg-zinc-800 transition"
+            className="block h-full no-underline rounded-2xl border border-zinc-800 bg-zinc-900 p-5 hover:bg-zinc-800 transition text-zinc-100"
           >
-            <div className="flex items-center justify-between gap-3">
-              <div className="text-zinc-100 font-semibold">LLM Eval Harness &amp; Contamination Defense</div>
-              <span className="text-xs px-2 py-1 rounded-full bg-green-300/10 text-green-300 border border-green-400/20">
-                Ship
-              </span>
-            </div>
-            <p className="mt-2 text-sm text-zinc-400">
-              Lightweight harness with safety &amp; contamination gates; production-minded scorecard and ship/hold criteria.
-            </p>
-            <div className="mt-4 inline-flex items-center rounded-full bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white">
-              Read case study →
+            <div className="flex h-full flex-col">
+              <div className="flex items-center justify-between gap-3">
+                <div className="font-semibold">LLM Eval Harness &amp; Contamination Defense</div>
+                <span className="text-xs px-2 py-1 rounded-full bg-green-300/10 text-green-300 border border-green-400/20">
+                  Ship
+                </span>
+              </div>
+              <p className="mt-2 text-sm text-zinc-400">
+                Lightweight harness with safety &amp; contamination gates; production-minded scorecard and ship/hold criteria.
+              </p>
+              <div className="mt-auto pt-4 inline-flex items-center rounded-full bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-blue-500">
+                Read case study →
+              </div>
             </div>
           </Link>
 
+          {/* Card 2 */}
           <Link
             href="/projects/agent-memory-benchmark/"
-            className="block rounded-2xl border border-zinc-800 bg-zinc-900 p-5 hover:bg-zinc-800 transition"
+            className="block h-full no-underline rounded-2xl border border-zinc-800 bg-zinc-900 p-5 hover:bg-zinc-800 transition text-zinc-100"
           >
-            <div className="flex items-center justify-between gap-3">
-              <div className="text-zinc-100 font-semibold">Agent Memory Benchmark</div>
-              <span className="text-xs px-2 py-1 rounded-full bg-green-300/10 text-green-300 border border-green-400/20">
-                Ship
-              </span>
-            </div>
-            <p className="mt-2 text-sm text-zinc-400">
-              Episodic + semantic memory improves long-horizon task completion with bounded latency and token overhead.
-            </p>
-            <div className="mt-4 inline-flex items-center rounded-full bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white">
-              Read case study →
+            <div className="flex h-full flex-col">
+              <div className="flex items-center justify-between gap-3">
+                <div className="font-semibold">Agent Memory Benchmark</div>
+                <span className="text-xs px-2 py-1 rounded-full bg-green-300/10 text-green-300 border border-green-400/20">
+                  Ship
+                </span>
+              </div>
+              <p className="mt-2 text-sm text-zinc-400">
+                Episodic + semantic memory improves long-horizon task completion with bounded latency and token overhead.
+              </p>
+              <div className="mt-auto pt-4 inline-flex items-center rounded-full bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-blue-500">
+                Read case study →
+              </div>
             </div>
           </Link>
 
+          {/* Card 3 */}
           <Link
             href="/projects/sft-dpo-mini/"
-            className="block rounded-2xl border border-zinc-800 bg-zinc-900 p-5 hover:bg-zinc-800 transition"
+            className="block h-full no-underline rounded-2xl border border-zinc-800 bg-zinc-900 p-5 hover:bg-zinc-800 transition text-zinc-100"
           >
-            <div className="flex items-center justify-between gap-3">
-              <div className="text-zinc-100 font-semibold">Instruction Tuning (SFT→DPO) Mini</div>
-              <span className="text-xs px-2 py-1 rounded-full bg-amber-300/10 text-amber-300 border border-amber-400/20">
-                Hold
-              </span>
-            </div>
-            <p className="mt-2 text-sm text-zinc-400">
-              Measured quality gains against cost; clear stop/continue rule and preference-data roadmap.
-            </p>
-            <div className="mt-4 inline-flex items-center rounded-full bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white">
-              Read case study →
+            <div className="flex h-full flex-col">
+              <div className="flex items-center justify-between gap-3">
+                <div className="font-semibold">Instruction Tuning (SFT→DPO) Mini</div>
+                <span className="text-xs px-2 py-1 rounded-full bg-amber-300/10 text-amber-300 border border-amber-400/20">
+                  Hold
+                </span>
+              </div>
+              <p className="mt-2 text-sm text-zinc-400">
+                Measured quality gains against cost; clear stop/continue rule and preference-data roadmap.
+              </p>
+              <div className="mt-auto pt-4 inline-flex items-center rounded-full bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-blue-500">
+                Read case study →
+              </div>
             </div>
           </Link>
         </div>
