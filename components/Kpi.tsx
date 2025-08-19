@@ -5,13 +5,12 @@ import { useEffect, useMemo, useRef, useState } from "react";
 type Props = {
   label: string;
   value: string | number | React.ReactNode;
-  hint?: string;       // small helper under label
-  sub?: string;        // legacy alias for hint
-  info?: string;       // explicit info text (if provided, uses this)
-  id?: string;         // optional stable id
+  hint?: string;   // helper text under label
+  sub?: string;    // legacy alias
+  info?: string;   // explicit info text
+  id?: string;     // optional stable id
 };
 
-/** Default info text for the 4 home KPIs (case-insensitive label match) */
 const DEFAULT_INFO: Record<string, string> = {
   "safety refusal":
     "Model reliably refuses unsafe prompts. This is part of my shipping bar and reflects safety-first criteria.",
@@ -27,7 +26,6 @@ export default function Kpi({ label, value, hint, sub, info, id }: Props) {
   const [open, setOpen] = useState(false);
   const wrapRef = useRef<HTMLDivElement>(null);
 
-  // stable id for mutual-exclusion
   const kpiId = useMemo(
     () =>
       (id ?? label)
@@ -37,7 +35,6 @@ export default function Kpi({ label, value, hint, sub, info, id }: Props) {
     [id, label]
   );
 
-  // auto-fill info for the 4 home KPIs if not provided
   const infoText = info ?? DEFAULT_INFO[label.trim().toLowerCase()];
   const helper = hint ?? sub;
 
@@ -51,7 +48,7 @@ export default function Kpi({ label, value, hint, sub, info, id }: Props) {
     return () => document.removeEventListener("mousedown", onDocClick);
   }, []);
 
-  // Ensure only one KPI popover is open at a time
+  // Only one popover open at a time
   useEffect(() => {
     const onSomeoneOpened = (e: Event) => {
       const otherId = (e as CustomEvent<string>).detail;
@@ -72,25 +69,24 @@ export default function Kpi({ label, value, hint, sub, info, id }: Props) {
 
   return (
     <div ref={wrapRef} className="relative">
-      <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-4 shadow-sm">
-        <div className="flex items-center justify-between gap-3">
-          <div className="min-w-0">
-            <div className="text-xs font-medium text-zinc-400">{label}</div>
-            {helper ? (
-              <div className="text-[11px] text-zinc-500 mt-0.5">{helper}</div>
-            ) : null}
-          </div>
+      <div className="relative rounded-xl border border-zinc-800 bg-zinc-900 p-4 shadow-sm">
+        {/* top-right smaller info icon */}
+        {infoText && (
+          <button
+            type="button"
+            aria-label={`About ${label}`}
+            onClick={toggle}
+            className="absolute top-3 right-3 inline-flex h-5 w-5 items-center justify-center rounded-full border border-zinc-700 text-zinc-300 hover:bg-zinc-800"
+          >
+            i
+          </button>
+        )}
 
-          {infoText && (
-            <button
-              type="button"
-              aria-label={`About ${label}`}
-              onClick={toggle}
-              className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-zinc-700 text-zinc-300 hover:bg-zinc-800"
-            >
-              i
-            </button>
-          )}
+        <div className="min-w-0">
+          <div className="text-xs font-medium text-zinc-400">{label}</div>
+          {helper ? (
+            <div className="text-[11px] text-zinc-500 mt-0.5">{helper}</div>
+          ) : null}
         </div>
 
         <div className="mt-2 text-2xl font-semibold tabular-nums text-zinc-100">
