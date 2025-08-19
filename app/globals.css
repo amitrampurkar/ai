@@ -11,3 +11,16 @@ a { @apply underline decoration-accent underline-offset-4; } a:hover { @apply te
 .btn-secondary { @apply bg-transparent border border-accent text-text; }
 nav a { @apply no-underline; } nav a:hover { @apply text-accent; }
 .prose { @apply max-w-none; } .prose p { @apply text-base; }
+
+/* === Home: Featured Projects — "Read case study" CTA ===
+   bottom-left (via existing mt-auto), content-width, vertical center, spacing */
+section.mt-10 .grid [class*="rounded-full"][class*="bg-blue-600"] {
+  width: max-content !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  line-height: 1 !important;
+  height: 44px !important;
+  padding: 0 18px !important;
+  margin-top: 1rem !important;
+}
