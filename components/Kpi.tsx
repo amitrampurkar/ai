@@ -5,14 +5,10 @@ import { useEffect, useMemo, useRef, useState } from "react";
 type Props = {
   label: string;
   value: string | number | React.ReactNode;
-  /** Small helper text under the label (new name) */
-  hint?: string;
-  /** Legacy alias used elsewhere in your codebase */
-  sub?: string;
-  /** Optional custom info text; if not provided, we auto-fill for known home KPIs */
-  info?: string;
-  /** Optional stable id */
-  id?: string;
+  hint?: string;       // small helper under label
+  sub?: string;        // legacy alias for hint
+  info?: string;       // explicit info text (if provided, uses this)
+  id?: string;         // optional stable id
 };
 
 /** Default info text for the 4 home KPIs (case-insensitive label match) */
@@ -31,7 +27,7 @@ export default function Kpi({ label, value, hint, sub, info, id }: Props) {
   const [open, setOpen] = useState(false);
   const wrapRef = useRef<HTMLDivElement>(null);
 
-  // derive a stable id
+  // stable id for mutual-exclusion
   const kpiId = useMemo(
     () =>
       (id ?? label)
@@ -41,10 +37,8 @@ export default function Kpi({ label, value, hint, sub, info, id }: Props) {
     [id, label]
   );
 
-  // auto-fill info for known home KPIs when not provided
-  const infoText =
-    info ?? DEFAULT_INFO[label.trim().toLowerCase()] ?? undefined;
-
+  // auto-fill info for the 4 home KPIs if not provided
+  const infoText = info ?? DEFAULT_INFO[label.trim().toLowerCase()];
   const helper = hint ?? sub;
 
   // Close when clicking outside
@@ -78,7 +72,6 @@ export default function Kpi({ label, value, hint, sub, info, id }: Props) {
 
   return (
     <div ref={wrapRef} className="relative">
-      {/* Keep styling neutral so existing look stays the same */}
       <div className="rounded-xl border border-zinc-800 bg-zinc-900 p-4 shadow-sm">
         <div className="flex items-center justify-between gap-3">
           <div className="min-w-0">
