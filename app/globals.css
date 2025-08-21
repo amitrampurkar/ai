@@ -1,26 +1,54 @@
-@tailwind base; @tailwind components; @tailwind utilities;
-:root { color-scheme: dark; } body { @apply bg-bg text-text; }
-a { @apply underline decoration-accent underline-offset-4; } a:hover { @apply text-accent; }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+body { @apply bg-bg text-text; }
+
+a { @apply underline decoration-accent underline-offset-4; }
+a:hover { @apply text-accent; }
+
 .container { @apply mx-auto px-4 sm:px-6 lg:px-8; }
 .card { @apply bg-card rounded-2xl shadow p-6; }
+
 .badge { @apply px-2 py-0.5 rounded text-xs font-medium; }
 .badge-ship { @apply bg-green-600/20 text-green-300; }
 .badge-hold { @apply bg-amber-600/20 text-amber-300; }
 .badge-block { @apply bg-rose-600/20 text-rose-300; }
+
 .btn { @apply inline-flex items-center gap-2 rounded-2xl px-4 py-2 bg-accent text-black no-underline; }
 .btn-secondary { @apply bg-transparent border border-accent text-text; }
-nav a { @apply no-underline; } nav a:hover { @apply text-accent; }
-.prose { @apply max-w-none; } .prose p { @apply text-base; }
 
-/* === Home: Featured Projects — "Read case study" CTA ===
-   bottom-left (via existing mt-auto), content-width, vertical center, spacing */
-section.mt-10 .grid [class*="rounded-full"][class*="bg-blue-600"] {
-  width: max-content !important;
-  display: inline-flex !important;
+nav a { @apply no-underline; }
+nav a:hover { @apply text-accent; }
+
+.prose { @apply max-w-none; }
+.prose p { @apply text-base; }
+
+/* === Featured Projects (Home) — bottom‑pin CTA with fixed spacing above === */
+/* Make each card fill its grid cell */
+section.mt-10 .grid > a.rounded-2xl {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+/* Ensure inner column uses a gap so there is ALWAYS space above CTA */
+section.mt-10 .grid > a.rounded-2xl .flex.h-full.flex-col {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.75rem !important; /* <-- fixed spacing above the CTA */
+  height: 100% !important;
+}
+/* CTA pill: pinned bottom-left, content-width, vertically centered */
+section.mt-10 .grid > a.rounded-2xl .rounded-full.bg-blue-600 {
+  margin-top: auto !important;          /* push to bottom */
+  align-self: flex-start !important;     /* bottom-left */
+
+  width: max-content !important;         /* shrink to text */
+  display: inline-flex !important;       /* vertical centering */
   align-items: center !important;
   justify-content: center !important;
   line-height: 1 !important;
   height: 44px !important;
   padding: 0 18px !important;
-  margin-top: 1rem !important;
 }
