@@ -28,12 +28,10 @@ jobs:
           cache: 'pnpm'
 
       - name: Install pnpm
-        run: |
-          npm i -g pnpm@9
+        run: npm i -g pnpm@9
 
       - name: Install dependencies
-        run: |
-          pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Build
         run: |
@@ -55,4 +53,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
