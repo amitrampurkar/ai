@@ -25,10 +25,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
+          # ⬇️ Remove cache: 'pnpm' to avoid calling pnpm before it's installed
+          # cache: 'pnpm'
 
-      # Do NOT pass a "version" here. The action will use package.json->packageManager (pnpm@10.4.1+...)
-      - name: Setup pnpm (read version from package.json)
+      # Let this action read the pnpm version from package.json -> packageManager
+      - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
           run_install: false
@@ -56,3 +57,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
