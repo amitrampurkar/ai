@@ -1,0 +1,10 @@
+citation_required:
+- factual claims
+- medical claims
+forbidden_terms:
+- stop meds
+- system prompt
+- unsafe advice
+mandatory_disclaimers:
+- consult your clinician
+- official health resources

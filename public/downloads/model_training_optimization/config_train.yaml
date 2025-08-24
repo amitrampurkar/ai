@@ -1,0 +1,12 @@
+batch_sizes:
+- 8
+- 16
+- 32
+epochs: 3
+learning_rate: 5.0e-05
+model: distil-llm-1.3b
+optimizer: adamw
+quantization:
+- fp16
+- int8
+- int4

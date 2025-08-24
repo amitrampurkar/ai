@@ -1,0 +1,10 @@
+blacklisted_addresses:
+- 0xABC123...
+- 0xDEF456...
+suspicious_patterns:
+- large transfer > $10k
+- multiple txns < 1s
+phishing_keywords:
+- airdrop
+- giveaway
+- claim prize

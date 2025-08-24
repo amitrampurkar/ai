@@ -1,0 +1,25 @@
+fields:
+  - name: prompt_id
+    type: string
+    description: ID of the prompt
+  - name: claim_id
+    type: string
+    description: ID of the extracted claim within the answer
+  - name: claim_text
+    type: string
+    description: Normalized minimal factual statement
+  - name: support_status
+    type: enum
+    values: [supported, unsupported, contradicted]
+  - name: evidence_id
+    type: string
+    description: Matched evidence row ID if supported/contradicted
+  - name: action
+    type: enum
+    values: [pass, ask_for_sources, abstain, hedge]
+  - name: final_output
+    type: string
+    description: Post-intervention answer shown to user
+  - name: latency_s
+    type: number
+    description: End-to-end time for response including verification

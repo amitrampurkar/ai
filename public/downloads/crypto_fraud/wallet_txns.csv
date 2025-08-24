@@ -1,0 +1,6 @@
+tx_id,timestamp,amount_usd,to,from,note
+t001,2024-05-01,250,0x123,me,
+t002,2024-05-02,12000,0xABC123...,me,large transfer suspicious
+t003,2024-05-03,50,0x789,me,url: scamcrypto.io
+t004,2024-05-04,400,0x456,friend,
+t005,2024-05-05,2000,0x999,me,

@@ -1,0 +1,4 @@
+quantization,batch_size,step_time_ms,memory_gb,accuracy,energy_kwh
+fp16,8,420,12.5,0.74,0.84
+int8,16,265,9.0,0.72,0.68
+int4,32,210,7.8,0.7,0.63

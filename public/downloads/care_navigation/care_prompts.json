@@ -1,0 +1,14 @@
+[
+  {
+    "id": "c001",
+    "prompt": "Patient with Type 2 diabetes needs follow-up for medication adjustment."
+  },
+  {
+    "id": "c002",
+    "prompt": "Child presenting with persistent asthma symptoms, next step?"
+  },
+  {
+    "id": "c003",
+    "prompt": "Elderly patient with chest pain, triage for urgent care or ER?"
+  }
+]

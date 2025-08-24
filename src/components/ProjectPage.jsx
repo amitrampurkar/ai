@@ -50,7 +50,7 @@ export default function ProjectPage({ project }) {
       {/* TL;DR */}
       <Card className="mb-12">
         <CardHeader>
-          <CardTitle className="text-2xl">TL;DR - For Busy Recruiters</CardTitle>
+          <CardTitle className="text-2xl">TL;DR - For Recruiters</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
@@ -100,11 +100,11 @@ export default function ProjectPage({ project }) {
 
       {/* Full Story */}
       <div className="mb-12">
-        <h2 className="text-3xl font-bold text-foreground mb-6">The Full Story</h2>
+        <h2 className="text-3xl font-bold text-foreground mb-6">The Full Story for Hiring Managers</h2>
         <div className="space-y-6">
           <div>
             <h3 className="text-xl font-semibold mb-2">Context</h3>
-            <p className="text-muted-foreground leading-relaxed">{project.story.context}</p>
+            <p className="text-muted-foreground leading-relaxed  whitespace-pre-line">{project.story.context}</p>
           </div>
           <div>
             <h3 className="text-xl font-semibold mb-2">Approach</h3>

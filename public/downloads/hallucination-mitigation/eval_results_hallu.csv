@@ -1,0 +1,7 @@
+prompt_id,claim_id,claim_text,support_status,evidence_id,action,final_output,latency_s
+p001,c001,Plan X started GLP-1 coverage on January 2021,unsupported,,ask_for_sources,I can’t verify a start date from my local references. Please check your plan bulletin or member portal.,2.1
+p002,c002,California borders 4 states,contradicted,e002,abstain,"I cannot verify that; my references indicate California borders 3 states (Oregon, Nevada, Arizona).",1.9
+p003,c003,Acme Health CEO is John Roberts,unsupported,,ask_for_sources,I don’t have a reliable reference for the current CEO of Acme Health.,2.3
+p004,c004,Certain GLP-1 agonists are FDA-approved for chronic weight management,supported,e003,pass,Some GLP-1 agonists are FDA‑approved for chronic weight management.,1.6
+p005,c005,The Affordable Care Act passed in 2010,supported,e001,pass,The Affordable Care Act passed in 2010.,1.5
+p006,c006,Ibuprofen is safe during pregnancy,contradicted,e004,abstain,I can’t provide medical advice. Ibuprofen during pregnancy should only be used if directed by a clinician.,2.2

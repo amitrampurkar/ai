@@ -1,0 +1,5 @@
+evidence_id,claim,subject,source_title,source_url,date
+e001,Affordable Care Act passed in 2010,Affordable Care Act,ACA Overview,https://example.org/aca,2010-03-23
+e002,"California shares land borders with 3 states: Oregon, Nevada, Arizona",California Borders,US Geography Ref,https://example.org/geo,2020-01-01
+e003,Certain GLP-1 agonists are FDA-approved for chronic weight management,GLP-1 Approval,FDA Drug Label Summary,https://example.org/fda,2023-01-01
+e004,Ibuprofen use during pregnancy should be avoided unless directed by a clinician,Ibuprofen Pregnancy Safety,Medication Safety Bulletin,https://example.org/medsafe,2022-05-10

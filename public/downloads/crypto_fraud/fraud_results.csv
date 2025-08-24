@@ -1,0 +1,3 @@
+tx_id,flag,details
+t002,Blacklisted Address,Transfer to known fraudulent wallet 0xABC123...
+t003,Phishing Domain,Transaction note contains scamcrypto.io

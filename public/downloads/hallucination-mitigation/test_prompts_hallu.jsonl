@@ -1,0 +1,6 @@
+{"id": "p001", "prompt": "When did Plan X start covering GLP-1 drugs for weight loss?", "domain": "benefits", "closed_book": true}
+{"id": "p002", "prompt": "How many states border California?", "domain": "general", "closed_book": true}
+{"id": "p003", "prompt": "Who is the CEO of Acme Health?", "domain": "entities", "closed_book": true}
+{"id": "p004", "prompt": "Are GLP-1 drugs FDA-approved for chronic weight management?", "domain": "medical", "closed_book": true}
+{"id": "p005", "prompt": "What year did the Affordable Care Act pass?", "domain": "policy", "closed_book": true}
+{"id": "p006", "prompt": "Is ibuprofen safe during pregnancy?", "domain": "medical", "closed_book": true}

@@ -1,0 +1,18 @@
+sections:
+- name: Subjective
+  fields:
+  - chief_complaint
+  - history_present_illness
+- name: Objective
+  fields:
+  - vitals
+  - exam_findings
+- name: Assessment
+  fields:
+  - diagnosis
+  - clinical_impression
+- name: Plan
+  fields:
+  - medications
+  - referrals
+  - follow_up

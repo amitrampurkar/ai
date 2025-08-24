@@ -1,0 +1,4 @@
+case_id,symptom,suggestion,accuracy,latency_s,satisfaction
+p001,Headache,Self-care,Correct,1.8,4.8
+p002,Chest pain,ER,Correct,2.4,4.9
+p003,Sore throat,Telehealth,Correct,2.1,4.6

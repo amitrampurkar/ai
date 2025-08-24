@@ -1,0 +1,14 @@
+[
+  {
+    "id": "p001",
+    "symptom": "Headache, mild, started today."
+  },
+  {
+    "id": "p002",
+    "symptom": "Chest pain lasting more than 10 minutes."
+  },
+  {
+    "id": "p003",
+    "symptom": "Sore throat with mild fever."
+  }
+]

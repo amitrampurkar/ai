@@ -1,0 +1,4 @@
+case_id,task,time_saved_min,doc_completeness,errors,review_time_min
+c001,Diabetes referral,5,90%,0,2.4
+c002,Asthma care plan,4,88%,1,2.6
+c003,Chest pain triage,6,92%,0,2.5
