@@ -10,30 +10,30 @@ import './App.css'
 
 function HomePage() {
   const metrics = [
-    {
-      title: "Model Safety Score",
-      description: "Keeping AI systems reliable",
-      value: "≥ 96%",
-      status: "ship"
-    },
-    {
-      title: "Data Quality Issues",
-      description: "Clean training pipelines",
-      value: "0",
-      status: "warning"
-    },
-    {
-      title: "Cost Per 1K Tokens",
-      description: "Efficient resource usage",
-      value: "$0.003",
-      status: "ship"
-    },
-    {
-      title: "Response Time",
-      description: "User experience priority",
-      value: "3.8s",
-      status: "error"
-    }
+      {
+        title: "Safety Compliance",
+        description: "Reliable outputs with safety checks",
+        value: "97% safe",
+        status: "ship"
+      },
+      {
+        title: "Facts Accuracy",
+        description: "Hallucination is higher on new topics",
+        value: "+12% errors",
+        status: "warning"
+      },
+      {
+        title: "Training Speed",
+        description: "Optimizations reduced training time",
+        value: "−37%",
+        status: "ship"
+      },
+      {
+        title: "Response Time",
+        description: "Extra safety checks add delay",
+        value: "+0.8s",
+        status: "error"
+      }
   ]
 
   const projects = [
@@ -83,12 +83,10 @@ function HomePage() {
       {/* Hero Section */}
       <div className="container py-10">
         <h1 className="hero-title text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-          I'm an AI Product Manager who turns complex models into products that actually work.
+          AI PM focused on safety, reliability, and impact..
         </h1>
         <p className="hero-subtitle mt-6 text-lg text-muted-foreground">
-          With 15+ years in product management and a Master's in Design, I bridge the gap between 
-          cutting-edge AI research and real-world business value. I don't just ship models—I ship 
-          solutions that teams trust, users love, and executives can sleep soundly knowing are safe and scalable.
+          With 12+ years in product management and a Master’s in Design, I design and validate lightweight AI MVPs — from safety harnesses to triage assistants — that reduce risk, improve accuracy, and show clear impact before scale.
         </p>
         
         <div className="hero-buttons mt-8 flex gap-4">
