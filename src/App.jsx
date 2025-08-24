@@ -39,42 +39,42 @@ function HomePage() {
   const projects = [
     {
       title: "LLM Evaluation & Safety Framework",
-      description: "Built a comprehensive testing system that catches model failures before they reach users. Think of it as quality assurance for AI—but with the stakes of a medical device approval process.",
+      description: "Built a lightweight safety system that checks AI answers against rules before release. It turned “looks fine” into clear pass/fail signals so teams can spot risky outputs early.",
       status: "ship",
       href: "/projects/llm-eval-harness"
     },
     {
       title: "Hallucination Testing & Mitigation",
-      description: "Developed a memory architecture that helps AI agents remember context across long conversations. Like giving an AI assistant a notebook that actually works—and doesn't forget where it put things.",
+      description: "Created a small framework to catch when AI makes up facts. It breaks answers into claims, checks them against trusted data, and either asks for sources, hedges, or blocks unsafe replies.",
       status: "ship",
-      href: "/projects/agent-memory-benchmark"
+      href: "/projects/hallucination-mitigation"
     },
     {
       title: "Model Training Optimization",
-      description: "Created a systematic approach to fine-tuning that balances quality improvements with cost reality. Because even the best AI is useless if you can't afford to run it.",
+      description: "Tested different training setups on a laptop to see how much faster and cheaper models could run. Found clear trade-offs between speed, memory savings, and accuracy.",
       status: "hold",
-      href: "/projects/sft-dpo-mini"
+      href: "/projects/model-training-optimization"
     }
   ]
 
   const agenticProjects = [
     {
       title: "Patient Triage Assistant",
-      description: "Built an AI that conducts independent research like a PhD student—formulating questions, gathering sources, and synthesizing insights. It's like having a research team that never sleeps and never gets tired of digging deeper.",
+      description: "Prototyped an AI tool that suggests whether a patient should use self-care, telehealth, urgent care, or the ER. Added safety disclaimers and tested it on common health cases.",
       status: "ship",
-      href: "/projects/autonomous-research-agent"
+      href: "/projects/patient-triage"
     },
     {
       title: "Care Navigation & Clinical Documentation Support",
-      description: "Created a system where specialized AI agents collaborate like a well-coordinated team. Think of it as the conductor for an AI orchestra—each agent plays their part, but the magic happens in the coordination.",
+      description: "Built two small agents — one for routing patients to the right care, another for drafting visit notes. Linked them with a simple orchestrator so they could hand off tasks reliably.",
       status: "ship",
-      href: "/projects/multi-agent-orchestration"
+      href: "/projects/care-navigation"
     },
     {
       title: "Cryptocurrency Fraud Detection & Portfolio Assistant",
-      description: "Developed tools that let enterprises run powerful AI models on their own hardware without sacrificing performance. It's like bringing the power of the cloud into your own data center.",
+      description: "Created a local tool that flags suspicious crypto transactions and gives a clear picture of portfolio health. It highlights fraud risks while also showing gains, losses, and diversification.",
       status: "ship",
-      href: "/projects/local-llm-optimization"
+      href: "/projects/crypto-fraud"
     }
   ]
 
@@ -118,7 +118,9 @@ function HomePage() {
       <h2 className="section-header mt-16 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
         LLM Foundational Projects
       </h2>
-      
+      <p className="mt-4 text-lg text-muted-foreground max-w-4xl">
+        Lightweight experiments that make AI models safer, more reliable, and faster to train. Each project shows how I scoped a local MVP to tackle real problems like evaluation, hallucinations, and training efficiency.”
+      </p>
       <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, index) => (
           <ProjectCard

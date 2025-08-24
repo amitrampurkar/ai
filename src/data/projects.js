@@ -3,7 +3,7 @@ const projects = {
   'llm-eval-harness': {
     id: 'llm-eval-harness',
     title: 'LLM Evaluation & Safety Framework',
-    subtitle: 'Comprehensive Testing for Reliable AI Systems',
+    subtitle: 'Lightweight checks to flag unsafe or biased AI outputs.',
     timeline: 'Q3 2025',
     team: 'Individual Project',
     status: 'ship',
@@ -86,10 +86,10 @@ const projects = {
     ]
   },
 
-  'agent-memory-benchmark': {
-    id: 'agent-memory-benchmark',
-    title: 'Agent Memory Benchmark',
-    subtitle: 'Long‑Term Context for Agent Workflows',
+  'hallucination-mitigation': {
+    id: 'hallucination-mitigation',
+    title: 'Hallucination Testing & Mitigation',
+    subtitle: 'Claim verification to catch and reduce AI hallucinations.',
     timeline: 'Q3 2025',
     team: 'Individual Project',
     status: 'ship',
@@ -179,10 +179,10 @@ const projects = {
     ]
   },
 
-  'sft-dpo-mini': {
-    id: 'sft-dpo-mini',
+  'model-training-optimization': {
+    id: 'model-training-optimization',
     title: 'Model Training Optimization',
-    subtitle: 'Lower Cost, Faster Iteration, Better Models',
+    subtitle: 'Balancing speed, memory, and accuracy in local training.',
     timeline: 'Q3 2025',
     team: 'Individual Project',
     status: 'hold',
@@ -270,10 +270,10 @@ const projects = {
 
 // Agentic AI Projects
 const agenticProjects = {
-  'autonomous-research-agent': {
-    id: 'autonomous-research-agent',
+  'patient-triage': {
+    id: 'patient-triage',
     title: 'Patient Triage Assistant',
-    subtitle: 'AI-Powered Healthcare Decision Support',
+    subtitle: 'AI prototype for safe and simple care routing.',
     timeline: 'Q2 2025',
     team: 'Individual Project',
     status: 'ship',
@@ -343,10 +343,10 @@ const agenticProjects = {
     ]
   },
 
-  'multi-agent-orchestration': {
-    id: 'multi-agent-orchestration',
+  'care-navigation': {
+    id: 'care-navigation',
     title: 'Care Navigation & Clinical Documentation Support',
-    subtitle: 'Coordinated Agent Workflows',
+    subtitle: 'Linked agents for patient routing and visit note drafting.',
     timeline: 'Q2 2025',
     team: 'Individual Project',
     status: 'ship',
@@ -412,12 +412,11 @@ const agenticProjects = {
               { name: 'One-Page Report', type: 'PNG', size: '65 KB' }
     ]
   },
-
-
-    'local-llm-optimization': {
-    id: 'local-llm-optimization',
+  
+    'crypto-fraud': {
+    id: 'crypto-fraud',
     title: 'Cryptocurrency Fraud Detection & Portfolio Assistant',
-    subtitle: 'Risk Signals + Personal Insights',
+    subtitle: 'Fraud flagging and portfolio insights in one tool.',
     timeline: 'Q4 2024',
     team: 'Individual Project',
     status: 'ship',
