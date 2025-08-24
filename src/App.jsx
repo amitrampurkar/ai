@@ -9,6 +9,13 @@ import { getProject, getAgenticProject, getAllAgenticProjects } from './data/pro
 import './App.css'
 
 function HomePage() {
+
+  const handleScrollToProjects = (e) => {
+    if (e && typeof e.preventDefault === 'function') e.preventDefault();
+    const el = document.getElementById('projects');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+  
   const metrics = [
       {
         title: "Safety Compliance",
@@ -94,11 +101,12 @@ function HomePage() {
         </p>
         
         <div className="hero-buttons mt-8 flex gap-4">
-          <Button className="btn btn-primary enhanced-hover">
+        <Button
+            type="button"
+            onClick={handleScrollToProjects}
+            className="btn btn-primary enhanced-hover"
+          >
             View my work
-          </Button>
-          <Button variant="secondary" className="btn btn-secondary enhanced-hover">
-            Download case studies
           </Button>
         </div>
       </div>
@@ -111,8 +119,10 @@ function HomePage() {
       </div>
 
       {/* Featured Projects */}
+      
       <h2 className="section-header mt-16 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
         LLM Foundational Projects
+        <span id="projects" className="block scroll-mt-24"></span>
       </h2>
       <p className="mt-4 text-lg text-muted-foreground max-w-4xl">
         Lightweight experiments that make AI models safer, more reliable, and faster to train. Each project shows how I scoped a local MVP to tackle real problems like evaluation, hallucinations, and training efficiency.”
