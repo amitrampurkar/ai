@@ -15,156 +15,133 @@ export default function ProjectPage({ project }) {
     )
   }
 
-  const getTrendIcon = (trend) => {
+  const trendIcon = (trend) => {
     switch (trend) {
       case 'positive':
-        return <TrendingUp className="h-4 w-4 text-green-400" />
+        return <TrendingUp className="w-4 h-4 text-green-400" />
       case 'negative':
-        return <TrendingDown className="h-4 w-4 text-red-400" />
+        return <TrendingDown className="w-4 h-4 text-red-400" />
       default:
-        return <Minus className="h-4 w-4 text-muted-foreground" />
+        return <Minus className="w-4 h-4 text-muted-foreground" />
     }
   }
 
-  const getStatusColor = (status) => {
-    return status === 'ship' ? 'bg-green-500' : 'bg-amber-500'
-  }
-
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container py-8">
-        {/* Back Navigation */}
-        <Button 
-          variant="ghost" 
-          className="mb-8 text-muted-foreground hover:text-foreground"
-          onClick={() => window.history.back()}
-        >
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          Back to projects
-        </Button>
+    <div className="container py-10">
+      <Button variant="ghost" className="mb-6" onClick={() => window.history.back()}>
+        <ArrowLeft className="w-4 h-4 mr-2" /> Back
+      </Button>
 
-        {/* Header */}
-        <div className="mb-12">
-          <div className="flex items-center gap-4 mb-4">
-            <h1 className="text-4xl font-bold text-foreground">{project.title}</h1>
-            <Badge className={`${getStatusColor(project.status)} text-white`}>
-              {project.status === 'ship' ? 'Shipped' : 'On Hold'}
-            </Badge>
+      {/* Header */}
+      <div className="mb-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div>
+          <h1 className="text-4xl font-bold text-foreground">{project.title}</h1>
+          <p className="text-muted-foreground">{project.subtitle}</p>
+        </div>
+        <div className="flex items-center gap-2">
+          <Badge variant="outline">{project.timeline}</Badge>
+          <Badge variant="secondary">{project.team}</Badge>
+          <Badge className={project.status === 'ship' ? 'bg-green-600' : 'bg-amber-600'}>
+            {project.status === 'ship' ? 'Ship' : 'Hold'}
+          </Badge>
+        </div>
+      </div>
+
+      {/* TL;DR */}
+      <Card className="mb-12">
+        <CardHeader>
+          <CardTitle className="text-2xl">TL;DR - For Busy Recruiters</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div>
+            <h4 className="font-semibold text-foreground mb-2">The Challenge</h4>
+            <p className="text-muted-foreground whitespace-pre-line">{project.tldr.challenge}</p>
           </div>
-          <p className="text-xl text-muted-foreground mb-6">{project.subtitle}</p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-            <div>
-              <span className="text-muted-foreground">Timeline:</span>
-              <span className="ml-2 text-foreground">{project.timeline}</span>
-            </div>
-            <div>
-              <span className="text-muted-foreground">Team:</span>
-              <span className="ml-2 text-foreground">{project.team}</span>
-            </div>
+          <div>
+            <h4 className="font-semibold text-foreground mb-2">My Solution</h4>
+            <p className="text-muted-foreground whitespace-pre-line">{project.tldr.solution}</p>
+          </div>
+          <div>
+            <h4 className="font-semibold text-foreground mb-2">The Impact</h4>
+            <p className="text-muted-foreground whitespace-pre-line">{project.tldr.impact}</p>
+            {project.tldr?.whyShip && (
+              <p className="mt-2">
+                <span className="font-medium text-green-500">Why Ship:</span>
+                <span className="ml-1 text-muted-foreground">{project.tldr.whyShip}</span>
+              </p>
+            )}
+            {project.tldr?.whyHold && (
+              <p>
+                <span className="font-medium text-amber-500">Why Hold:</span>
+                <span className="ml-1 text-muted-foreground">{project.tldr.whyHold}</span>
+              </p>
+            )}
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Metrics */}
+      <div className="mb-12">
+        <h2 className="text-3xl font-bold text-foreground mb-6">Key Results</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {project.metrics?.map((m, idx) => (
+            <Card key={idx}>
+              <CardContent className="p-6">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-sm text-muted-foreground">{m.label}</span>
+                  {trendIcon(m.trend)}
+                </div>
+                <div className="text-3xl font-bold">{m.value}</div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+
+      {/* Full Story */}
+      <div className="mb-12">
+        <h2 className="text-3xl font-bold text-foreground mb-6">The Full Story</h2>
+        <div className="space-y-6">
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Context</h3>
+            <p className="text-muted-foreground leading-relaxed">{project.story.context}</p>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Approach</h3>
+            <p className="text-muted-foreground leading-relaxed whitespace-pre-line">{project.story.approach}</p>
+          </div>
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Outcome</h3>
+            <p className="text-muted-foreground leading-relaxed whitespace-pre-line">{project.story.outcome}</p>
           </div>
         </div>
+      </div>
 
-        {/* TL;DR Section */}
-        <Card className="mb-12">
-          <CardHeader>
-            <CardTitle className="text-2xl">TL;DR - For Busy Recruiters</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div>
-              <h4 className="font-semibold text-foreground mb-2">The Challenge</h4>
-              <p className="text-muted-foreground">{project.tldr.challenge}</p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-foreground mb-2">My Solution</h4>
-              <p className="text-muted-foreground">{project.tldr.solution}</p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-foreground mb-2">The Impact</h4>
-              <p className="text-muted-foreground">{project.tldr.impact}</p>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Metrics */}
-        <div className="mb-12">
-          <h2 className="text-3xl font-bold text-foreground mb-6">Key Results</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {project.metrics.map((metric, index) => (
-              <Card key={index}>
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm text-muted-foreground">{metric.label}</span>
-                    {getTrendIcon(metric.trend)}
-                  </div>
-                  <div className="text-2xl font-bold text-foreground">{metric.value}</div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-
-        {/* Detailed Story */}
-        <div className="mb-12">
-          <h2 className="text-3xl font-bold text-foreground mb-6">The Full Story - For Hiring Managers</h2>
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">Context & Background</h3>
-              <p className="text-muted-foreground leading-relaxed">{project.story.context}</p>
-            </div>
-            
-            <div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">The Challenge</h3>
-              <p className="text-muted-foreground leading-relaxed">{project.story.challenge}</p>
-            </div>
-            
-            <div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">My Approach</h3>
-              <p className="text-muted-foreground leading-relaxed">{project.story.approach}</p>
-            </div>
-            
-            <div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">Implementation</h3>
-              <p className="text-muted-foreground leading-relaxed">{project.story.implementation}</p>
-            </div>
-            
-            <div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">Results & Impact</h3>
-              <p className="text-muted-foreground leading-relaxed">{project.story.results}</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Downloads */}
+      {/* Downloads */}
+      {project.downloads?.length > 0 && (
         <Card>
           <CardHeader>
-            <CardTitle className="text-2xl">Download Materials</CardTitle>
-            <p className="text-muted-foreground">
-              Detailed case studies, implementation guides, and analysis reports
-            </p>
+            <CardTitle className="text-2xl">Downloads</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {project.downloads.map((download, index) => (
-                <Button
-                  key={index}
-                  variant="outline"
-                  className="h-auto p-4 flex flex-col items-start space-y-2"
-                >
-                  <div className="flex items-center space-x-2">
-                    <Download className="h-4 w-4" />
-                    <span className="font-medium">{download.name}</span>
-                  </div>
-                  <div className="text-xs text-muted-foreground">
-                    {download.type} • {download.size}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {project.downloads.map((download, i) => (
+                <Button key={i} variant="outline" className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <Download className="w-4 h-4" />
+                    <div className="text-left">
+                      <div className="font-medium">{download.name}</div>
+                      <div className="text-xs text-muted-foreground">
+                        {download.type} • {download.size}
+                      </div>
+                    </div>
                   </div>
                 </Button>
               ))}
             </div>
           </CardContent>
         </Card>
-      </div>
+      )}
     </div>
   )
 }
-
