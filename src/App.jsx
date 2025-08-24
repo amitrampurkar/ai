@@ -14,25 +14,29 @@ function HomePage() {
         title: "Safety Compliance",
         description: "Reliable outputs with safety checks",
         value: "97% safe",
-        status: "ship"
+        status: "ship",
+        tooltip: "SHIP – Model passes safety guardrails with very low unsafe outputs."
       },
       {
         title: "Facts Accuracy",
         description: "Hallucination is higher on new topics",
         value: "+12% errors",
-        status: "warning"
+        status: "warning",
+        tooltip: "WARNING – Accuracy drops on new topics, needs more tuning."
       },
       {
         title: "Training Speed",
         description: "Optimizations reduced training time",
         value: "−37%",
-        status: "ship"
+        status: "ship",
+        tooltip: "SHIP – Training runs much faster with only minor trade-offs."
       },
       {
         title: "Response Time",
         description: "Extra safety checks add delay",
         value: "+0.8s",
-        status: "error"
+        status: "error",
+        tooltip: "HOLD – Extra checks slow down responses noticeably."
       }
   ]
 
@@ -101,15 +105,9 @@ function HomePage() {
 
       {/* Metrics Grid */}
       <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {metrics.map((metric, index) => (
-          <MetricCard
-            key={index}
-            title={metric.title}
-            description={metric.description}
-            value={metric.value}
-            status={metric.status}
-          />
-        ))}
+        {metrics.map((m, i) => (
+         <MetricCard key={i} {...m} />
+))}
       </div>
 
       {/* Featured Projects */}
