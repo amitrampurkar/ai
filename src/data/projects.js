@@ -78,6 +78,7 @@ const projects = {
           - Dashboards & Monitoring: Build stakeholder dashboards showing trends by policy (e.g., unsafe advice, hallucinations) to support release readiness.`
     },
     downloads: [
+      { name: "All project files", file: "llm-eval.zip", type: "ZIP archive", size: "6 KB"},
       { name: 'Evaluation Results', type: 'CSV', size: '478 B' },
       { name: 'Red-Team Test Cases', type: 'JSON', size: '384 B' },
       { name: 'Rules & Policies', type: 'YAML', size: '190 B' },
@@ -170,6 +171,7 @@ const projects = {
           - Dashboards: trendlines by domain (dates, drug coverage, provider facts) for release readiness.`
     },
     downloads: [
+        { name: "All project files", file: "hallucination-mitigation.zip", type: "ZIP archive", size: "12 KB"},
         { name: 'Hallucination Eval Results', type: 'CSV', size: '18 KB' },
         { name: 'Red-Team Test Prompts', type: 'JSONL', size: '6 KB' },
         { name: 'Claim Schema', type: 'YAML', size: '2 KB' },
@@ -260,6 +262,7 @@ const projects = {
           - Build a CI/CD hook to block regressions in efficiency.` 
     },
     downloads: [
+        { name: "All project files", file: "model_training_optimization.zip", type: "ZIP archive", size: "8 KB"},      
         { name: 'Training Summary Results', type: 'CSV', size: '3 KB' },
         { name: 'Training Config', type: 'YAML', size: '1 KB' },
         { name: 'Run Log', type: 'Markdown', size: '2 KB' },
@@ -335,6 +338,7 @@ const agenticProjects = {
                   - Explore EHR integration for clinician-in-the-loop validation.`
     },
     downloads: [
+      { name: "All project files", file: "patient_triage.zip", type: "ZIP archive", size: "8 KB"}, 
       { name: 'Triage Prompts', type: 'JSON', size: '3 KB' },
       { name: 'Safety Rules', type: 'YAML', size: '2 KB' },
       { name: 'Evaluation Results', type: 'CSV', size: '3 KB' },
@@ -405,6 +409,7 @@ const agenticProjects = {
                   - Add governance guardrails for clinical safety and compliance.`
     },
     downloads: [
+              { name: "All project files", file: "care_navigation.zip", type: "ZIP archive", size: "9 KB"},
               { name: 'Triage Prompts', type: 'JSON', size: '2 KB' },
               { name: 'Safety Rules', type: 'YAML', size: '1 KB' },
               { name: 'Evaluation Results', type: 'CSV', size: '2 KB' },
@@ -412,7 +417,7 @@ const agenticProjects = {
               { name: 'One-Page Report', type: 'PNG', size: '65 KB' }
     ]
   },
-  
+
     'crypto-fraud': {
     id: 'crypto-fraud',
     title: 'Cryptocurrency Fraud Detection & Portfolio Assistant',
@@ -485,6 +490,7 @@ const agenticProjects = {
                   - Automate alerts for unusual portfolio movements.`
     },
     downloads: [
+            { name: "All project files", file: "crypto_fraud.zip", type: "ZIP archive", size: "9 KB"}, 
             { name: 'Fraud Detection Rules', type: 'YAML', size: '2 KB' },
             { name: 'Phishing Domains List', type: 'JSON', size: '1 KB' },
             { name: 'Wallet Transactions', type: 'CSV', size: '5 KB' },

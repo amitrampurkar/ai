@@ -121,31 +121,73 @@ export default function ProjectPage({ project }) {
         </div>
       </div>
 
-      {/* Downloads */}
-      {project.downloads?.length > 0 && (
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-2xl">Downloads</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {project.downloads.map((download, i) => (
-                <Button key={i} variant="outline" className="flex items-center justify-between">
+{/* Downloads */}
+{project.downloads?.length > 0 && (
+  <Card>
+    <CardHeader>
+      <CardTitle className="text-2xl">Downloads</CardTitle>
+    </CardHeader>
+    <CardContent>
+      {(() => {
+        const zip = project.downloads[0];                 // first item = the zip
+        const contents = project.downloads.slice(1);      // remaining = shown as list only
+        const zipHref = zip?.file
+          ? `${import.meta.env.BASE_URL}downloads/${zip.file}`
+          : null;
+
+        return (
+          <div className="space-y-4">
+            {/* Single downloadable ZIP button */}
+            {zipHref && (
+              <a
+                href={zipHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full block"
+              >
+                <Button
+                  variant="outline"
+                  className="flex items-center justify-between w-full"
+                >
                   <div className="flex items-center gap-3">
                     <Download className="w-4 h-4" />
                     <div className="text-left">
-                      <div className="font-medium">{download.name}</div>
+                      <div className="font-medium">{zip.name}</div>
                       <div className="text-xs text-muted-foreground">
-                        {download.type} • {download.size}
+                        {zip.type} • {zip.size}
                       </div>
                     </div>
                   </div>
                 </Button>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      )}
+              </a>
+            )}
+
+            {/* Non-clickable list of files inside the zip */}
+            {contents.length > 0 && (
+              <div>
+                <div className="text-sm font-medium mb-2">Included in ZIP</div>
+                <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {contents.map((item, i) => (
+                    <li
+                      key={i}
+                      className="rounded-xl border p-3 bg-muted/30"
+                    >
+                      <div className="font-medium">{item.name}</div>
+                      <div className="text-xs text-muted-foreground">
+                        {item.type} {item.size ? `• ${item.size}` : ""}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        );
+      })()}
+    </CardContent>
+  </Card>
+)}
+
     </div>
   )
 }
