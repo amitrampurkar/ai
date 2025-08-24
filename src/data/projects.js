@@ -30,7 +30,9 @@ const projects = {
       approach:
         `I defined test dimensions (prompt injection, hallucination, toxicity, privacy, robustness), created golden datasets, and integrated regression checks into CI for continuous monitoring.`,
       outcome:
-        `Teams could catch regressions before release, quantify safety coverage, and prioritize model/guardrail improvements based on measured risk, not guesswork.`
+        `Teams could catch regressions before release, quantify safety coverage, and prioritize model/guardrail improvements based on measured risk, not guesswork.`,
+      nextsteps:
+        'SAMPLE TEXT.'
     },
     downloads: [
       { name: 'Evaluation Test Plan', type: 'PDF', size: '1.2 MB' },
@@ -69,7 +71,9 @@ const projects = {
       approach:
         `Structured events into episodic memory + semantic embeddings; added aging/TTL policies and privacy filters.`,
       outcome:
-        `Delivered measurable gains in completion rates with a small, acceptable latency tradeoff.`
+        `Delivered measurable gains in completion rates with a small, acceptable latency tradeoff.`,
+      nextsteps:
+        'SAMPLE TEXT.'  
     },
     downloads: [
       { name: 'Memory Design Doc', type: 'PDF', size: '1.0 MB' }
@@ -106,7 +110,9 @@ const projects = {
       approach:
         `Introduced dataset quality checks, stratified sampling, experiment governance, and promotion gates.`,
       outcome:
-        `Focused compute on highest‑yield experiments; accelerated learning cycles tied to product outcomes.`
+        `Focused compute on highest‑yield experiments; accelerated learning cycles tied to product outcomes.`,
+      nextsteps:
+        'SAMPLE TEXT.'  
     },
     downloads: [
       { name: 'Training Ops Playbook', type: 'PDF', size: '900 KB' }
@@ -146,7 +152,9 @@ const agenticProjects = {
       approach:
         `Scoped to symptom intake → triage suggestion → explanation with safety disclaimers. Ran locally on a MacBook Pro using a LLaMA model; evaluated canonical scenarios (headache, chest pain, sore throat).`,
       outcome:
-        `Validated feasibility and outlined next steps: clinician‑approved pathways, guardrails/fallbacks, and IRB‑approved pilots before any real‑world use.`
+        `Validated feasibility and outlined next steps: clinician‑approved pathways, guardrails/fallbacks, and IRB‑approved pilots before any real‑world use.`,
+      nextsteps:
+        'SAMPLE TEXT.'  
     },
     downloads: [
       { name: 'Prototype Overview', type: 'PDF', size: '600 KB' },
@@ -178,7 +186,9 @@ const agenticProjects = {
     story: {
       context: `Multi‑agent systems fail at the seams. We needed clear interfaces and review loops.`,
       approach: `Defined roles, messages, and arbitration; added traceability; measured throughput and error rates.`,
-      outcome: `Made complex workflows reliable enough for pilots with human‑in‑the‑loop QA.`
+      outcome: `Made complex workflows reliable enough for pilots with human‑in‑the‑loop QA.`,
+      nextsteps:
+        'SAMPLE TEXT.'
     },
     downloads: []
   },
@@ -206,7 +216,9 @@ const agenticProjects = {
     story: {
       context: `Private deployments are attractive but slow/pricey.`,
       approach: `Quantized models, tuned batch sizes, added caching.`,
-      outcome: `Hit acceptable SLAs for internal pilot.`
+      outcome: `Hit acceptable SLAs for internal pilot.`,
+      nextsteps:
+        'SAMPLE TEXT.'
     },
     downloads: []
   }

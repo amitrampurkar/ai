@@ -114,6 +114,10 @@ export default function ProjectPage({ project }) {
             <h3 className="text-xl font-semibold mb-2">Outcome</h3>
             <p className="text-muted-foreground leading-relaxed whitespace-pre-line">{project.story.outcome}</p>
           </div>
+          <div>
+            <h3 className="text-xl font-semibold mb-2">Next Steps</h3>
+            <p className="text-muted-foreground leading-relaxed whitespace-pre-line">{project.story.nextsteps}</p>
+          </div>
         </div>
       </div>
 
