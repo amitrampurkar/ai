@@ -1,9 +1,13 @@
+import React from "react";
+import useScrollTopOnMount from "@/hooks/useScrollTopOnMount.js";
 import { Button } from '@/components/ui/button.jsx'
 import { Badge } from '@/components/ui/badge.jsx'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card.jsx'
 import { Download, TrendingUp, TrendingDown, Minus, ArrowLeft } from 'lucide-react'
 
 export default function ProjectPage({ project }) {
+  useScrollTopOnMount();
+  
   if (!project) {
     return (
       <div className="container py-20 text-center">
