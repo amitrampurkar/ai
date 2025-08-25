@@ -6,7 +6,7 @@ export default function Footer() {
           © {new Date().getFullYear()} Amit Rampurkar. All rights reserved.
         </p>
         <p className="text-center sm:text-right">
-          Website design & layout vibe-coded with Manus + ChatGPT
+          Website design vibe-coded with Manus + ChatGPT
         </p>
       </div>
     </footer>

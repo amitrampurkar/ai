@@ -5,7 +5,6 @@ export default function Header() {
     <header className="border-b border-border">
       <div className="container flex items-center justify-between py-4">
         <nav className="flex items-center gap-8 text-sm">
-          {/* HashRouter uses "#/<path>" */}
           <a href="#/" className="text-foreground hover:text-primary transition-colors">
             Home
           </a>
@@ -13,8 +12,15 @@ export default function Header() {
             About
           </a>
         </nav>
-        <Button className="btn btn-primary">
-          Hire me
+        <Button
+          asChild
+          className="btn btn-primary"
+        >
+          <a
+            href="mailto:rampurkar.amit@gmail.com?subject=Let%E2%80%99s%20Connect%20%E2%80%93%20Product%20Management%20Opportunities"
+          >
+            Hire me
+          </a>
         </Button>
       </div>
     </header>
