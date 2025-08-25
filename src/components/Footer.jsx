@@ -1,13 +1,14 @@
 export default function Footer() {
   return (
-    <footer className="border-t border-border mt-20">
-      <div className="container py-8 text-sm text-muted-foreground">
-        © 2025 Amit Rampurkar ·{' '}
-        <a href="/privacy" className="hover:text-foreground transition-colors">
-          Privacy
-        </a>
+    <footer className="border-t border-border">
+      <div className="container flex flex-col sm:flex-row items-center justify-between gap-4 py-6 text-sm text-muted-foreground">
+        <p>
+          © {new Date().getFullYear()} Amit Rampurkar. All rights reserved.
+        </p>
+        <p className="text-center sm:text-right">
+          Website design & layout vibe-coded with Manus + ChatGPT
+        </p>
       </div>
     </footer>
   )
 }
-

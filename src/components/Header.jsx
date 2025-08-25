@@ -5,6 +5,7 @@ export default function Header() {
     <header className="border-b border-border">
       <div className="container flex items-center justify-between py-4">
         <nav className="flex items-center gap-8 text-sm">
+          {/* HashRouter uses "#/<path>" */}
           <a href="#/" className="text-foreground hover:text-primary transition-colors">
             Home
           </a>
@@ -19,4 +20,3 @@ export default function Header() {
     </header>
   )
 }
-

@@ -5,6 +5,7 @@ import Footer from './components/Footer.jsx'
 import MetricCard from './components/MetricCard.jsx'
 import ProjectCard from './components/ProjectCard.jsx'
 import ProjectPage from './components/ProjectPage.jsx'
+import About from './components/About.jsx'
 import { getProject, getAgenticProject, getAllAgenticProjects } from './data/projects.js'
 import './App.css'
 
@@ -71,7 +72,7 @@ function HomePage() {
   const agenticProjects = [
     {
       title: "Patient Triage Assistant",
-      description: "Prototyped an AI tool that suggests whether a patient should use self-care, telehealth, urgent care, or the ER. Added safety disclaimers and tested it on common health cases.",
+      description: "Prototyped an AI tool that suggests whether a patient should use self‑care, telehealth, urgent care, or the ER. Added safety disclaimers and tested it on common health cases.",
       status: "ship",
       href: "/projects/patient-triage"
     },
@@ -84,7 +85,7 @@ function HomePage() {
     {
       title: "Cryptocurrency Fraud Detection & Portfolio Assistant",
       description: "Created a local tool that flags suspicious crypto transactions and gives a clear picture of portfolio health. It highlights fraud risks while also showing gains, losses, and diversification.",
-      status: "ship",
+      status: "hold",
       href: "/projects/crypto-fraud"
     }
   ]
@@ -97,7 +98,7 @@ function HomePage() {
           AI PM focused on safety, reliability, and impact..
         </h1>
         <p className="hero-subtitle mt-6 text-lg text-muted-foreground">
-          With 12+ years in product management and a Master’s in Design, I design and validate lightweight AI MVPs — from safety harnesses to triage assistants — that reduce risk, improve accuracy, and show clear impact before scale.
+          Below is a collection of lightweight AI MVPs — experiments designed to test ideas, build skills, and highlight practical product thinking.
         </p>
         
         <div className="hero-buttons mt-8 flex gap-4">
@@ -180,6 +181,7 @@ function App() {
         <main className="container py-10">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<About />} />
             <Route path="/projects/:projectId" element={<ProjectPageWrapper />} />
           </Routes>
         </main>
@@ -191,4 +193,3 @@ function App() {
 }
 
 export default App
-
